@@ -2,7 +2,7 @@
 
 from peewee import Model, SqliteDatabase, ForeignKeyField, CharField, DecimalField, IntegerField
 
-db = SqliteDatabase('/home/stefan/Documenten/GitHub/Assignments/betsy-webshop/betsy.db')
+db = SqliteDatabase('betsy-webshop/betsy.db')
 
 
 class BaseModel(Model):
