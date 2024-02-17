@@ -15,6 +15,9 @@ class User(BaseModel):
     address = CharField(max_length=255)
     billing_info = CharField(max_length=255)
 
+class Tag(BaseModel):
+    name = CharField(unique=True)
+
 
 class Product(BaseModel):
     name = CharField(max_length=255)
@@ -22,10 +25,8 @@ class Product(BaseModel):
     price = DecimalField(max_digits=10, decimal_places=2)
     quantity = IntegerField()
     user = ForeignKeyField(User, backref='products')
-
-
-class Tag(BaseModel):
-    name = CharField(unique=True)
+    tag1 = ForeignKeyField(Tag, backref='product1', null=True)
+    tag2 = ForeignKeyField(Tag, backref='product2', null=True)
 
 
 class Transaction(BaseModel):
